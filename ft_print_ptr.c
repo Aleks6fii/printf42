@@ -14,6 +14,7 @@ int ft_print_ptr(unsigned long long pointer)
 	else 
 	{
 		len += ft_pointer_len(pointer);
+		ft_putptr(pointer);
 	}
 	return (len);
 }

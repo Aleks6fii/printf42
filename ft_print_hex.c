@@ -1,7 +1,7 @@
 #include "ft_printf.h"
 
-int ft_hexlen(unsigned int num);
-int ft_puthex(unsigned int num, const char format);
+static int ft_hexlen(unsigned int num);
+static void ft_puthex(unsigned int num, const char format);
 
 int ft_print_hex(unsigned int n, const char format)
 {
@@ -12,7 +12,7 @@ int ft_print_hex(unsigned int n, const char format)
 	return (ft_hexlen(n));
 }
 
-int ft_hexlen(unsigned int num)
+static int ft_hexlen(unsigned int num)
 {
 	int l;
 
@@ -25,7 +25,7 @@ int ft_hexlen(unsigned int num)
 	return (l);
 }
 
-int ft_puthex(unsigned int num, const char format)
+static void ft_puthex(unsigned int num, const char format)
 {
 	if (num >= 16)
 	{

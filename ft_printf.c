@@ -30,6 +30,7 @@ int ft_printf(const char *str, ...)
 
 int main(void)
 {
-	ft_printf("hello %i very %s\n %", 134643567, "impressive :)");
+	// ft_printf("hello %i very %s\n %", 134643567, "impressive :)");
+	ft_printf("unsigned int %u \n", 0/*4294967295*/);
 	return (0);
 }

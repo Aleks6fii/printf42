@@ -1,20 +1,27 @@
 #include "ft_printf.h"
 
-//static int ft_numlen(unsigned int n);
-//static char *ft_uitoa(unsigned int n);
+// static int ft_numlen(unsigned int n);
+// static char *ft_uitoa(unsigned int n);
 
-// int ft_printu(unsigned int n)
-// {
-// 	int len;
+int ft_printu(unsigned int n)
+{
+	int len;
 
-// 	len = 0;
-// 	if (n == 0)
-// 		len += write(1, "0", 1);
-// 	else
-// 	{
-		
-// 	}
-// }
+	len = 0;
+	if (n == 0)
+		len += write(1, "0", 1);
+	else
+	{
+		if (n < 10)
+			len += ft_putchar(n + '0');
+		else
+		{
+			ft_printu(n / 10);   // recursion
+			len += ft_putchar(n % 10 + '0');
+		}
+	}
+	return(len);
+}
 
 // static int ft_numlen(unsigned int n)
 // {
