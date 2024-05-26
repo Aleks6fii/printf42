@@ -18,6 +18,8 @@ int ft_format(va_list args, const char format) // format variable is what follow
 		len += ft_printu(va_arg(args, unsigned int));
 	else if (format == 'x' || format == 'X') // lowercase/uppercase hex
 		len += ft_print_hex(va_arg(args, unsigned int), format);
+	else if (format == '%')
+		len += ft_putchar('%');
 
 	return (len);
 }

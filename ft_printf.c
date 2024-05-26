@@ -5,18 +5,19 @@ int ft_printf(const char *str, ...)
 {
 	int i;
 	va_list args;
-	int length; // do we need to return length of what was printed?
-
+	int length;
+	
 	i = 0;
 	length = 0;
 	va_start(args, str);
+	if (!str)
+		return (0); // NULL?
 	while (str[i] != '\0')
 	{
 		if (i > 20)
 			printf("\nstr: %s\n i: %i str[i]: %c", str, i, str[i]);
 		if (str[i] == '%' && str[i + 1])
 		{
-			//printf("\n -- %s\n", str);
 			length += ft_format(args, str[i + 1]);
 			i++;
 		}
@@ -28,9 +29,14 @@ int ft_printf(const char *str, ...)
 	return (length);
 }
 
-int main(void)
-{
-	// ft_printf("hello %i very %s\n %", 134643567, "impressive :)");
-	ft_printf("unsigned int %u \n", 0/*4294967295*/);
-	return (0);
-}
+// int main(void)
+// {
+// 	char *ptr;
+// 	ptr = "abc";
+// 	// ft_printf("hello %i very %s\n %", 134643567, "impressive :)");
+// 	ft_printf("unsigned int %u \n", 0); // 4294967295
+// 	ft_printf("percent test %% \n");
+// 	ft_printf("pointer test %p \n", ptr);
+// 	ft_printf("hex test %X \n", 0xFFF00012);
+// 	return (0);
+// }
