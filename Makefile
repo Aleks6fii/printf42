@@ -7,13 +7,14 @@ SRC =  ft_format.c \
 	  ft_printu.c \
 	  ft_putchar.c \
 	  ft_putstr.c \
+	  ft_itoa.c
 
 
 NAME = libftprintf.a
 
 CC = gcc
 
-FLAG = -Wall -Werror -Wextra 
+FLAG = -Wall -Werror -Wextra
 
 OBJ = $(SRC:.c=.o)
 

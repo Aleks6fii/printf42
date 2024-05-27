@@ -12,8 +12,8 @@ int ft_format(va_list args, const char format) // format variable is what follow
 		len += ft_printstr(va_arg(args, char *));
 	else if (format == 'p') // void *pointer in hex
 		len += ft_print_ptr(va_arg(args, unsigned long long));
-	else if (format == 'd' || format == 'i') // decimal
-		len += 5; // ft_printnbr(va_arg(args, int));
+	else if (format == 'i' || format == 'd') // decimal
+		len += ft_printnbr(va_arg(args, long int));
 	else if (format == 'u') // unsigned decimal
 		len += ft_printu(va_arg(args, unsigned int));
 	else if (format == 'x' || format == 'X') // lowercase/uppercase hex

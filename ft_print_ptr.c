@@ -8,11 +8,13 @@ int ft_print_ptr(unsigned long long pointer)
 	int len;
 
 	len = 0;
-	len += write(1, "0x", 2); // print beginning of hex format 
+	// len += write(1, "0x", 2); // print beginning of hex format 
 	if (pointer == 0)
-		len += write(1, "0", 1);
+		// len += write(1, "0", 1);
+		len += write(1, "(nil)", 5);
 	else 
 	{
+		len += write(1, "0x", 2);
 		len += ft_pointer_len(pointer);
 		ft_putptr(pointer);
 	}
