@@ -1,16 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/29 13:52:20 by afilippo          #+#    #+#             */
+/*   Updated: 2024/05/29 16:46:14 by afilippo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-static int ft_pointer_len(uintptr_t ptr);
-static void ft_putptr(uintptr_t ptr);
+static int	ft_pointer_len(unsigned long long ptr);
+static void	ft_putptr(unsigned long long ptr);
 
-int ft_print_ptr(unsigned long long pointer)
+int	ft_print_ptr(unsigned long long pointer)
 {
-	int len;
+	int	len;
 
 	len = 0;
-	// len += write(1, "0x", 2); // print beginning of hex format 
 	if (pointer == 0)
-		// len += write(1, "0", 1);
 		len += write(1, "(nil)", 5);
 	else 
 	{
@@ -21,9 +31,9 @@ int ft_print_ptr(unsigned long long pointer)
 	return (len);
 }
 
-static int ft_pointer_len(uintptr_t ptr)
+static int	ft_pointer_len(unsigned long long ptr)
 {
-	int l;
+	int	l;
 
 	l = 0;
 	while (ptr != 0)
@@ -34,7 +44,7 @@ static int ft_pointer_len(uintptr_t ptr)
 	return (l);
 }
 
-static void ft_putptr(uintptr_t ptr)
+static void	ft_putptr(unsigned long long ptr)
 {
 	if (ptr >= 16)
 	{
@@ -44,8 +54,8 @@ static void ft_putptr(uintptr_t ptr)
 	else 
 	{
 		if (ptr <= 9)
-			ft_putchar(ptr + '0'); // or ft_putchar_fd() ???
+			ft_putchar(ptr + '0');
 		else
-			ft_putchar(ptr - 10 + 'a'); // this is to convert to letters in hex format 
+			ft_putchar(ptr - 10 + 'a');
 	}
 }

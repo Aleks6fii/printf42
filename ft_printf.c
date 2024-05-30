@@ -1,16 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: afilippo <afilippo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/29 13:52:25 by afilippo          #+#    #+#             */
+/*   Updated: 2024/05/29 13:56:21 by afilippo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
-	int i;
-	va_list args;
-	int length;
+	int		i;
+	va_list	args;
+	int		length;
 
 	i = 0;
 	length = 0;
 	va_start(args, str);
 	if (!str)
-		return (0); // NULL?
+		return (0);
 	while (str[i] != '\0')
 	{
 		if (str[i] == '%' && str[i + 1])
@@ -25,18 +37,3 @@ int ft_printf(const char *str, ...)
 	va_end(args);
 	return (length);
 }
-
-// #include <stdio.h>
-// #include <limits.h>
-
-// int main(void)
-// {
-// 	// ft_printf("hello %i very %s\n %", 134643567, "impressive :)");
-// 	// ft_printf("unsigned int test: %u \n", 10); // 4294967295
-// 	// printf("unsigned int printf: %u \n", 10);
-// 	// ft_printf("hex test %X \n", 0xFFF00012);
-// 	ft_printf(" %d \n", 0);
-// 	// printf(" %d \n", LONG_MIN);
-// 	// printf("%d \n", 0);
-// 	return (0);
-// }
